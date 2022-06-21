@@ -31,6 +31,7 @@ secretEnv:
 
 env:
   TRUSTED_PROXIES: "172.16.0.0/16"
+  NEXTCLOUD_DATA_DIR: /data
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   POSTGRES_PASSWORD:
@@ -55,9 +56,12 @@ envFrom:
       name: nextcloudconfig
 
 persistence:
-  data:
+  html:
     enabled: true
     mountPath: "/var/www/html"
+  data:
+    enabled: true
+    mountPath: "/data"
 
 probes:
   liveness:

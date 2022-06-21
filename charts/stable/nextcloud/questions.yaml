@@ -209,6 +209,15 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: html
+          label: "App html Storage"
+          description: "Stores the Application html."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
         - variable: data
           label: "App Data Storage"
           description: "Stores the Application Data."
