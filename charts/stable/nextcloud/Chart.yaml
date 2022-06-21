@@ -3,7 +3,11 @@ appVersion: "24.0.2"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
+<<<<<<< HEAD
   version: 10.1.4
+=======
+  version: 10.1.0
+>>>>>>> 251b1b8cc9 (update stuffs)
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
@@ -33,7 +37,7 @@ sources:
 - https://github.com/nextcloud/docker
 - https://github.com/nextcloud/helm
 type: application
-version: 14.0.12
+version: 15.0.0
 annotations:
   truecharts.org/catagories: |
     - cloud
