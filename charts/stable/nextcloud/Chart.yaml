@@ -3,11 +3,7 @@ appVersion: "24.0.2"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-<<<<<<< HEAD
   version: 10.1.4
-=======
-  version: 10.1.0
->>>>>>> 251b1b8cc9 (update stuffs)
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
