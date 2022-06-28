@@ -51,39 +51,6 @@ env:
       name: rediscreds
       key: redis-password
 
-additionalContainers:
-  notify-push:
-    image: '{{ include "tc.common.images.selector" . }}'
-    imagePullPolicy: '{{ .Values.image.pullPolicy }}'
-    securityContext:
-      "{{- tpl ( toYaml .Values.securityContext ) $ | nindent 4 }}"
-    volumeMounts:
-      '{{- (include "tc.common.controller.volumeMounts" . | trim) | nindent 4 }}'
-    cmd: ["sh /hbp.sh"]
-    env:
-      NEXTCLOUD_URL: 'http://{{ include "tc.common.names.fullname" . }}'
-      TRUSTED_PROXIES: "{{ .Values.env.TRUSTED_PROXIES }}"
-      NEXTCLOUD_DATA_DIR: "{{ .Values.env.NEXTCLOUD_DATA_DIR }}"
-      POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
-      POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-      POSTGRES_PASSWORD:
-        secretKeyRef:
-          name: dbcreds
-          key: postgresql-password
-      POSTGRES_HOST:
-        secretKeyRef:
-          name: dbcreds
-          key: plainporthost
-      REDIS_HOST:
-        secretKeyRef:
-          name: rediscreds
-          key: plainhost
-      REDIS_HOST_PASSWORD:
-        secretKeyRef:
-          name: rediscreds
-          key: redis-password
-
-
 envFrom:
   - configMapRef:
       name: nextcloudconfig
